@@ -13,9 +13,3 @@ fact02 n = n * fact02 (n-2)
 fib 0 = 1
 fib 1 = 1
 fib n = fib(n-1) + fib(n-2)
-
-qsort [] = []
-qsort (x:xs) = let 
-    left = qsort [t|t <- xs, t <= x]
-    right = qsort [t|t <- xs, t > x]
-    in left ++ [x] ++ right 
