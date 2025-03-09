@@ -1,0 +1,1 @@
+-- integral :: (Double -> Double) -> Double -> Double -> Double

@@ -13,7 +13,7 @@ main = interact withLists
 
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
-qsort (x:xs) = let 
+qsort (x:xs) = let
     left = qsort [t|t <- xs, t <= x]
     right = qsort [t|t <- xs, t > x]
-    in left ++ [x] ++ right 
+    in left ++ [x] ++ right
