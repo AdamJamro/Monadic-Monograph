@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <!-- <rect width="700" height="600" fill="#f0f0f0"/> -->
+  
+  <!-- Monad Box -->
+  <rect x="200" y="50" width="400" height="160" rx="10" fill="#d1e7dd" stroke="#198754" stroke-width="2"/>
+  <text x="400" y="85" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#198754">Monad</text>
+  
+  <!-- Monad Content -->
+  <text x="220" y="120" font-family="monospace" font-size="14" fill="#333">return :: a -> m a</text>
+  <text x="220" y="145" font-family="monospace" font-size="14" fill="#333">(>>=) :: m a -> (a -> m b) -> m b</text>
+  <text x="220" y="170" font-family="monospace" font-size="14" fill="#333">(>>) :: m a -> m b -> m b</text>
+  <text x="220" y="195" font-family="monospace" font-size="14" fill="#333">fail :: String -> m a</text>
+  
+  <!-- Applicative Box -->
+  <rect x="200" y="240" width="400" height="160" rx="10" fill="#cfe2ff" stroke="#0d6efd" stroke-width="2"/>
+  <text x="400" y="275" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#0d6efd">Applicative Functor</text>
+  
+  <!-- Applicative Content -->
+  <text x="220" y="310" font-family="monospace" font-size="14" fill="#333">pure :: a -> f a</text>
+  <text x="220" y="335" font-family="monospace" font-size="14" fill="#333">(&lt;*&gt;) :: f (a -> b) -> f a -> f b</text>
+  <text x="220" y="360" font-family="monospace" font-size="14" fill="#333">(&lt;*) :: f a -> f b -> f a</text>
+  <text x="220" y="385" font-family="monospace" font-size="14" fill="#333">(*&gt;) :: f a -> f b -> f b</text>
+  
+  <!-- Functor Box -->
+  <rect x="200" y="430" width="400" height="115" rx="10" fill="#f8d7da" stroke="#dc3545" stroke-width="2"/>
+  <text x="400" y="465" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#dc3545">Functor</text>
+  
+  <!-- Functor Content -->
+  <text x="220" y="500" font-family="monospace" font-size="14" fill="#333">fmap :: (a -> b) -> f a -> f b</text>
+  <text x="220" y="525" font-family="monospace" font-size="14" fill="#333">(&lt;$) :: a -> f b -> f a</text>
+  
+  <!-- Hierarchy Arrows -->
+  <path d="M400 210 L400 240" stroke="#333" stroke-width="3" stroke-dasharray="5,5" fill="none"/>
+  <polygon points="400,240 395,230 405,230" fill="#333"/>
+  
+  <path d="M400 400 L400 430" stroke="#333" stroke-width="3" stroke-dasharray="5,5" fill="none"/>
+  <polygon points="400,430 395,420 405,420" fill="#333"/>
+  
+  <!-- Labels -->
+  <text x="420" y="225" font-family="Arial" font-size="14" fill="#333">Extends</text>
+  <text x="420" y="415" font-family="Arial" font-size="14" fill="#333">Extends</text>
+</svg>
