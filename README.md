@@ -2,8 +2,8 @@
 
 ###### this a record of my journey with the Haskell-side of functional programming and the dedicated course I enrolled in at my Uni.
 
-1. [Programmer's glossary](#)
-
+1. [Programmer's glossary](#programmers-glossary)
+2. [Mathematician's glossary](#mathematicians-glossary)
 
 ## Synopsis: <br> Functional Programming and Category Theory
 
