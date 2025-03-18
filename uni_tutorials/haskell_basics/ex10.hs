@@ -2,6 +2,10 @@ myMap :: (a->b) -> [a] -> [b]
 myMap f = foldr ((:) . f) []
 -- myMap f = foldr (\x acc -> f x : acc) []
 
+myMap2 :: (a->b) -> [a] -> [b]
+myMap2 f [] = []
+myMap2 f (x:xs) = f x : myMap f xs
+
 myZip :: [a] -> [b] -> [(a,b)]
 myZip [] _ = []
 myZip _ [] = []
@@ -11,6 +15,11 @@ myZipWith :: (a->b->c) -> [a] -> [b] -> [c]
 myZipWith _ [] _ = []
 myZipWith _ _ [] = []
 myZipWith f (x:xs) (y:ys) = f x y : myZipWith f xs ys
+
+myZipWith2 :: (a->b->c) -> [a] -> [b] -> [c]
+myZipWith2 f xs ys = [f x y | (x,y) <- myZip xs ys]
+
+fib = 1:1:zipWith (+) fib (tail fib)
 
 myFilter :: (a->Bool) -> [a] -> [a]
 myFilter _ [] = []
