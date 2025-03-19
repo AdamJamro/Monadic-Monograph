@@ -13,14 +13,13 @@ dcp n = let
 -- 0.3045
 
 dcpList:: Int -> [Double]
-dcpList n = [fromIntegral(length coPrimes) / fromIntegral(t*t) | t<-[1..n],
-              let coPrimes = [(k,l) | k<-[1..t], l<-[1..(k-1)], gcd k l == 1]]
-
+dcpList n = [fromIntegral coPrimes / fromIntegral(t*t) | t<-[1..n],
+              let coPrimes = 2 * length [(k,l) | k<-[1..t], l<-[1..(k-1)], gcd k l == 1]]
 
 
 coprimeCounter :: Int -> Int
-coprimeCounter 1 = 0
-coprimeCounter n = coprimeCounter (n-1) + length [k | k<-[1..(n-1)], gcd k n == 1]
+coprimeCounter 1 = 1
+coprimeCounter n = coprimeCounter (n-1) + 2 * length [k | k<-[1..(n-1)], gcd k n == 1]
 
 dcpRec:: Int -> Double
 dcpRec n = fromIntegral(coprimeCounter n) / fromIntegral(n * n)
