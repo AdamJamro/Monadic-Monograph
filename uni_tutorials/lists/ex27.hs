@@ -18,10 +18,10 @@ bubbleSort xs
 -- more elegant solution
 bsort :: Ord a => [a] -> [a]
 bsort s = case bsort' s of
-              t | t == s    -> t
-                | otherwise -> bsort t
+              t | t == s    -> t       -- is the list sorted?
+                | otherwise -> bsort t -- if not, perform another pass
   where bsort' (x:x2:xs) 
                 | x > x2    = x2 : bsort' (x:xs)
                 | otherwise = x : bsort' (x2:xs)
-        bsort' s = s
+        bsort' x = x
 

@@ -29,6 +29,11 @@ permutations3 (x:xs) = [zs | ys <- permutations3 xs, zs <- insertEverywhere x ys
                         insertEverywhere x (y:ys) = (x:y:ys) : [y:zs | zs <- insertEverywhere x ys]
 
 
+splits :: [a] -> [([a],[a])]
+splits [] = [([],[])]
+splits (x:xs) = ([],x:xs) : [(x:ys,zs) | (ys,zs) <- splits xs]
+
+
 permutations4 :: [a] -> [[a]]
 permutations4 [] = [[]]
-permutations4 (x:xs) = [ys ++ [x] ++ as | (ys,as) <- concat (map splits (permutations4 xs))]
+permutations4 (x:xs) = [ys ++ [x] ++ as | (ys,as) <- concatMap splits (permutations4 xs)]
