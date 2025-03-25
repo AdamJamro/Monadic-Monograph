@@ -15,9 +15,9 @@
   ### Programmer's glossary:
   - **Pure Functions**: Functions that always produce the same output for the same input and have no side effects.
   - **Higher-Order Functions**: Functions that take other functions as arguments or return them as results.
-  - **Functors**: Wrapper that provides an implementation of fmap - a map for its wrapped objects ([read more](/Monadic-Monograph/haskell_guide/Monad.md))
-  - **Applicative**: ??? ([read more](/Monadic-Monograph/haskell_guide/Monad.md))
-  - **Monads**: A type of (endo-)functor that allows for the chaining of operations while managing side effects, encapsulating values, and providing a context for computation. ([read more](/Monadic-Monograph/haskell_guide/Monad.md))
+  - **Functors**: Wrapper that provides an implementation of fmap - a map for its wrapped objects ([read more](/haskell_guide/Monad.md))
+  - **Applicative**: ??? ([read more](/haskell_guide/Monad.md))
+  - **Monads**: A type of (endo-)functor that allows for the chaining of operations while managing side effects, encapsulating values, and providing a context for computation. ([read more](/haskell_guide/Monad.md))
 
 
 ### Mathematician's glossary:
