@@ -2,7 +2,6 @@ badqs [] = []
 badqs (x:xs) = badqs [y | y<-xs, y <=x] ++ [x] ++ badqs [y | y<-xs, y>x]
 
 
-
 -- optimized:
 -- opted out from filtering the whole list twice
 -- opted out from going one extra step of recursion for single element lists

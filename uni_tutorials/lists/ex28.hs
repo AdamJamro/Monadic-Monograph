@@ -8,4 +8,3 @@ insertionSort (x:xs) = insert x (insertionSort xs)
     insert x (y:ys)
       | x <= y    = x : y : ys
       | otherwise = y : insert x ys
-      
