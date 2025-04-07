@@ -11,5 +11,6 @@ quadraticMean :: Floating a => [a] -> a
 quadraticMean xs = sqrt . sum $ map (^2) xs
 
 variance :: Fractional a => [a] -> a
+variance [] = 0
 variance xs = sum (map (\x -> (x - mean) ^ 2) xs) / fromIntegral (length xs)
     where mean = sum xs / fromIntegral (length xs)

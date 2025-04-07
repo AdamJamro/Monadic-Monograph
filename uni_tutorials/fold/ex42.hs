@@ -7,5 +7,5 @@ approx n = sum $ map (\k -> 1 / fromIntegral (factorial k)) [0..n]
           factorial k = k * factorial (k - 1)
 
 -- optimized
-approx' :: Int -> Double
+approx' :: Integer -> Double
 approx' n = sum $ foldl (\acc x -> (head acc / fromIntegral x) : acc ) [1] [1..n]
