@@ -8,7 +8,7 @@ data NFA state symbol =
     , nfaAcceptStates :: [state]
     , nfaAlphabet :: [symbol]
     , nfaStates :: [state]
-    }
+    } 
 
 
 data DFA state symbol =
@@ -40,7 +40,7 @@ determine (NFAConstructor nfaTransition nfaStart nfaAcceptStates nfaAlphabet nfa
     areTheSame :: Eq state => ([state], [state]) -> Bool
     areTheSame ([], []) = True
     areTheSame ([], _) = False
-    areTheSame (_, []) = False
+    areTheSame (_, []) = False 
     areTheSame (x:xs, y:ys) = (x == y) && areTheSame (xs,ys)
     propagate [] = []
     propagate (x:xs)
@@ -49,7 +49,7 @@ determine (NFAConstructor nfaTransition nfaStart nfaAcceptStates nfaAlphabet nfa
         where
             propagateForSymbol input_symbol = nub . sort $ concatMap (`nfaTransition` input_symbol) x
     dfaTransition states input_symbol = nub . sort $ concatMap (`nfaTransition` input_symbol) states
-
+ 
 accepts :: Eq state => DFA state symbol -> [symbol] -> Bool
 accepts dfa = (`elem` acceptStates dfa) . foldl (transition dfa) (start dfa)
 

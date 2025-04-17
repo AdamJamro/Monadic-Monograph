@@ -1,9 +1,9 @@
 
 mmap :: (a -> b) -> [[a]] -> [[b]]
-mmap f xs = map (map f) xs
+mmap f = map (map f)
 
 mmmap :: (a -> b) -> [[[a]]] -> [[[b]]]
-mmmap f xs = map (map (map f)) xs
+mmmap f = map (map (map f))
 
 
 -- mmap (+1) [[1,2,3],[2,3,4]]

@@ -5,3 +5,5 @@ foldl' f z (x:xs) =
 
 dotprod :: (Num a) => [a] -> [a] -> a
 dotprod xs ys = foldl' (+) 0 (zipWith (*) xs ys)
+
+dotprod' xs ys = sum $ zipWith (*) xs ys
