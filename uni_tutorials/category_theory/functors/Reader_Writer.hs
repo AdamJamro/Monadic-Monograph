@@ -3,13 +3,20 @@ instance Functor (Writer a) where
     fmap f (Writer (alpha, beta)) =
         Writer (alpha, f beta)
 
--- Note: this is contravariant functor
+newtype Writer' a b = Writer' (a, b)
+instance Functor (Writer' a) where
+    fmap :: (b -> c) -> Writer' a b -> Writer' a c
+    fmap f (Writer' (alpha, beta)) =
+        Writer' ((,) alpha (f beta))
+
+
 newtype Reader a b = Reader (a -> b)
 instance Functor (Reader a) where
     fmap :: (b1 -> b2) -> Reader a b1 -> Reader a b2
     fmap f (Reader g) = Reader (f . g)
 
 -- Note: this is just a functor (regular covariant functor)
+-- even thoug InvReader a b = constr (b -> a) would be contravariant
 newtype Reader2 a b = Reader2 ((b -> a) -> a)
 instance Functor (Reader2 a) where
     fmap :: (b1 -> b2) -> Reader2 a b1 -> Reader2 a b2
@@ -18,7 +25,7 @@ instance Functor (Reader2 a) where
 -- Note: in general a composition of contravariant functors is a covariant functor
 
 
--- *actually we could also ask haskell to do it for us:
+-- *actually we could also ask haskell to do the following for us automatically:
 runReader :: Reader b a -> b -> a
 runReader (Reader g) = g
 
