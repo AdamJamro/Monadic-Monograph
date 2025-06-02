@@ -1,11 +1,7 @@
 import Data.Foldable
 import Data.Monoid
 
-msublists [] = [[]]
-msublists (x:xs) = do
-    t <- [False, True]
-    y <- msublists xs
-    return $ if t then x : y else y
+
 
 
 newtype MyWriter m a = W { runWriter :: (a, m) } deriving (Show, Eq)
