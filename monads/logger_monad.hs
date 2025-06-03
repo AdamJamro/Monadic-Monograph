@@ -1,3 +1,4 @@
+import Data.Foldable (Foldable(fold))
 data Logger a = Logger [String] a
     deriving (Show, Eq)
 
@@ -41,3 +42,16 @@ loggerExample = do
     c <- logAdd b 30
     d <- logAdd c 40
     Logger [] d
+
+
+loggerListSumExample :: [Int] -> Logger Int
+loggerListSumExample [] = Logger [] 0
+loggerListSumExample (x:xs) = do
+    sumTail <- loggerListSumExample xs
+    logAdd sumTail x
+
+loggerListSumExample' :: [Int] -> Logger Int
+loggerListSumExample' [] = Logger [] 0
+loggerListSumExample' args = 
+    foldl (\(Logger accLogs accVal) arg -> Logger (accLogs ++ ["+" ++ show arg]) (accVal + arg)) 
+    (pure 0) args
